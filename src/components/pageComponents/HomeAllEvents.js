@@ -1,13 +1,27 @@
 import React, { useState } from "react"
 import { IoCalendarOutline } from "react-icons/io5"
 import { AiOutlineLike, AiFillLike } from "react-icons/ai"
-const HomeAllEvents = ({ data }) => {
+const HomeAllEvents = ({ data, showIntreset, removeIntreset }) => {
   const [count, setCount] = useState(data.votes)
   const [clicked, setIsClicked] = useState(false)
   const handleChange = () => {
-    setCount((prevcount) => prevcount + 1)
-    setIsClicked(true)
+    setIsClicked((prevValue) => !prevValue)
+    if (clicked === true) {
+      setCount((prevcount) => prevcount - 1)
+      showIntreset()
+    } else {
+      setCount((prevcount) => prevcount + 1)
+      removeIntreset()
+    }
   }
+
+  const uiDate = data.date
+
+  const date = new Date(uiDate)
+  const eventDate = date.getDate()
+  const month = date.getMonth() + 1
+  const year = date.getFullYear()
+  const cleanupDate = `${eventDate}-${month}-${year}`
   return (
     <div>
       <div className="shadow mb-5 h-[40vh] overflow-hidden rounded-lg">
@@ -22,21 +36,14 @@ const HomeAllEvents = ({ data }) => {
           <div className="flex justify-between mt-1">
             <span
               onClick={handleChange}
-              className={
-                !clicked
-                  ? "flex items-center gap-2 text-sm cursor-pointer"
-                  : "flex items-center gap-2 text-sm cursor-pointer pointer-events-none"
-              }
+              className={"flex items-center gap-2 text-sm cursor-pointer"}
             >
-              {!clicked ? (
-                <AiOutlineLike size={25} />
-              ) : (
-                <AiFillLike size={25} className="text-green-500" />
-              )}{" "}
+              {clicked && <AiFillLike className="text-green-500" size={25} />}
+              {!clicked && <AiOutlineLike size={25} />}
               {count} votes
             </span>
             <span className="flex items-center gap-2 text-sm">
-              <IoCalendarOutline size={20} /> {data?.date}
+              <IoCalendarOutline size={20} /> {cleanupDate}
             </span>
           </div>
         </div>
@@ -46,3 +53,11 @@ const HomeAllEvents = ({ data }) => {
 }
 
 export default HomeAllEvents
+
+// {
+//   !clicked && !data?.isIntrested ? (
+//     <AiOutlineLike size={25} />
+//   ) : (
+//     <AiFillLike size={25} className="text-green-500" />
+//   )
+// }

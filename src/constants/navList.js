@@ -10,7 +10,7 @@ export const navList = [
     path: "/event",
   },
   {
-    id: 1,
+    id: 3,
     title: "Login",
     path: "/login",
   },

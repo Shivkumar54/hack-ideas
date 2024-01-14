@@ -7,6 +7,7 @@ export const eventData = [
     category: "tech",
     votes: 3504,
     date: "10-01-2024",
+    isIntrested: false,
     author: "Kumar",
   },
   {
@@ -17,6 +18,7 @@ export const eventData = [
     category: "tech",
     votes: 1950,
     date: "1-01-2024",
+    isIntrested: false,
     author: "Dany",
   },
 
@@ -28,6 +30,7 @@ export const eventData = [
     category: "feature",
     votes: 1304,
     date: "11-01-2024",
+    isIntrested: false,
     author: "Dushyanth",
   },
   {
@@ -38,6 +41,7 @@ export const eventData = [
     category: "activity",
     votes: 1785,
     date: "20-01-2024",
+    isIntrested: false,
     author: "Ankit",
   },
   {
@@ -48,7 +52,8 @@ export const eventData = [
     category: "tech",
     votes: 1597,
     date: "07-01-2024",
-    author: "Kumar",
+    isIntrested: false,
+    author: "Chethan",
   },
   {
     id: 6,
@@ -58,7 +63,8 @@ export const eventData = [
     category: "activity",
     votes: 657,
     date: "08-01-2024",
-    author: "Kumar",
+    isIntrested: false,
+    author: "Ajith",
   },
   {
     id: 7,
@@ -68,7 +74,8 @@ export const eventData = [
     category: "feature",
     votes: 323,
     date: "10-01-2024",
-    author: "Kumar",
+    isIntrested: false,
+    author: "Chirag",
   },
   {
     id: 8,
@@ -78,7 +85,8 @@ export const eventData = [
     category: "activity",
     votes: 457,
     date: "11-01-2024",
-    author: "Kumar",
+    isIntrested: false,
+    author: "Vijayanth",
   },
   {
     id: 9,
@@ -88,7 +96,8 @@ export const eventData = [
     category: "feature",
     votes: 698,
     date: "10-01-2024",
-    author: "Kumar",
+    isIntrested: false,
+    author: "Sandy",
   },
   {
     id: 10,
@@ -98,7 +107,8 @@ export const eventData = [
     category: "activity",
     votes: 1020,
     date: "10-01-2024",
-    author: "Kumar",
+    isIntrested: false,
+    author: "John",
   },
   {
     id: 11,
@@ -108,7 +118,8 @@ export const eventData = [
     category: "tech",
     votes: 851,
     date: "10-01-2024",
-    author: "Kumar",
+    isIntrested: false,
+    author: "Pasha",
   },
   {
     id: 12,
@@ -118,6 +129,20 @@ export const eventData = [
     category: "activity",
     votes: 851,
     date: "10-01-2024",
-    author: "Kumar",
+    isIntrested: false,
+    author: "Ram",
   },
 ]
+
+
+// {
+    
+//     title: title,
+//     img:image ,
+//     desc: description,
+//     category:category ,
+//     votes:votes,
+//     date:eventDate ,
+//     isIntrested: ,
+//     author: author,
+//   }

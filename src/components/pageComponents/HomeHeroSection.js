@@ -2,7 +2,7 @@ import React from "react"
 
 const HomeHeroSection = () => {
   return (
-    <div className="flex gap-10 justify-center items-center h-[80vh] mb-10">
+    <div className="flex gap-10 justify-center items-center h-[50vh] mb-10">
       <div className="w-[70%]">
         <h1 className="text-6xl font-bold">
           Welcome to <span className="text-green-500">Hack ideas</span>
