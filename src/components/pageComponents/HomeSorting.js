@@ -19,15 +19,15 @@ const HomeSorting = ({ handleClick, filterList, ltoH, htoL }) => {
       <div className="sorting">
         <button
           onClick={ltoH}
-          className="mb-5 bg-gray-200 mr-3 w-28 py-2 rounded-md"
+          className="mb-5 bg-gray-200 mr-3 w-48 py-2 rounded-md"
         >
-          Low to high
+          Lowest Votes First
         </button>
         <button
           onClick={htoL}
-          className="mb-5 bg-gray-200 mr-3 w-28 py-2 rounded-md"
+          className="mb-5 bg-gray-200 mr-3 w-48 py-2 rounded-md"
         >
-          High to low
+          Highest Votes First
         </button>
       </div>
     </div>

@@ -4,17 +4,16 @@ import HomeAllEvents from "../components/pageComponents/HomeAllEvents"
 import { filterer } from "../constants/filterList"
 import HomeSorting from "../components/pageComponents/HomeSorting"
 import useFilterhook from "../hooks/useFilterhook"
-import { collection, doc, getDocs, updateDoc } from "firebase/firestore"
-import { db } from "../firebase/firebase-config"
 import EventShimmer from "../components/mainComponents/EventShimmer"
+import useGetDatafromFirebase from "../hooks/useGetDatafromFirebase"
+import useCandidateIntreset from "../hooks/useCandidateIntreset"
 
 const Home = () => {
   //?Imports
   const filterList = filterer
-
   const [eventList, setEventList] = useState([])
-
-  const eventCollection = collection(db, "contests")
+  const { showIntreset, removeIntreset } = useCandidateIntreset()
+  const getDataFromFirebase = useGetDatafromFirebase({ setEventList })
 
   const { filterData, ltoH, htoL, handleClick } = useFilterhook(
     eventList || null
@@ -22,28 +21,13 @@ const Home = () => {
   useEffect(() => {
     getDataFromFirebase()
   }, [])
+
   useEffect(() => {
     const timer = setTimeout(() => {
       handleClick("reset")
     }, 1000)
     return () => timer
   }, [eventList])
-
-  const getDataFromFirebase = async () => {
-    const eventData = await getDocs(eventCollection)
-    setEventList(eventData.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-  }
-
-  const showIntreset = async (id, votes, isIntrested) => {
-    const eventDocs = doc(db, "contests", id)
-    const updatedVote = { votes: votes + 1, isIntrested: !isIntrested }
-    await updateDoc(eventDocs, updatedVote)
-  }
-  const removeIntreset = async (id, votes, isIntrested) => {
-    const eventDocs = doc(db, "contests", id)
-    const updatedVote = { votes: votes - 1, isIntrested: !isIntrested }
-    await updateDoc(eventDocs, updatedVote)
-  }
 
   return (
     <div>
